@@ -30,10 +30,19 @@ jobs:
           ls -lh "$HOME/.local/share/godot/export_templates/4.7.2.stable/android_debug.apk"
           ls -lh "$HOME/.local/share/godot/export_templates/4.7.2.stable/android_release.apk"
 
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android SDK packages
+        run: |
+          yes | sdkmanager --licenses
+          sdkmanager "platforms;android-35" "build-tools;35.0.0"
+
       - name: Prepare project
         run: |
           mkdir -p build
           sed -i 's/gradle_build\/use_gradle_build=true/gradle_build\/use_gradle_build=false/' export_presets.cfg
+          godot --headless --editor --path . --install-android-build-template
           godot --headless --editor --path . --import
           godot --headless --path . --editor --quit
 
