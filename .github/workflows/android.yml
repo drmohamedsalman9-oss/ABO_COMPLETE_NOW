@@ -30,14 +30,15 @@ jobs:
           ls -lh "$HOME/.local/share/godot/export_templates/4.7.2.stable/android_debug.apk"
           ls -lh "$HOME/.local/share/godot/export_templates/4.7.2.stable/android_release.apk"
 
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
       - name: Install Android SDK packages
         run: |
+          export ANDROID_HOME=/usr/local/lib/android/sdk
+          export ANDROID_SDK_ROOT="$ANDROID_HOME"
+          echo "ANDROID_HOME=$ANDROID_HOME" >> "$GITHUB_ENV"
+          echo "ANDROID_SDK_ROOT=$ANDROID_SDK_ROOT" >> "$GITHUB_ENV"
           set -o pipefail
-          yes | sdkmanager --sdk_root="$ANDROID_HOME" --licenses
-          yes | sdkmanager --sdk_root="$ANDROID_HOME" "platforms;android-35" "build-tools;35.0.0"
+          yes | "$ANDROID_HOME/cmdline-tools/16.0/bin/sdkmanager" --sdk_root="$ANDROID_HOME" --licenses
+          "$ANDROID_HOME/cmdline-tools/16.0/bin/sdkmanager" --sdk_root="$ANDROID_HOME" "platforms;android-35" "build-tools;35.0.0"
 
       - name: Prepare project
         run: |
