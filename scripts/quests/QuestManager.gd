@@ -1,0 +1,329 @@
+extends Node
+## نظام المهمات والقصة — الملك الأخير
+## الجزء 7 | أبو كردوم
+## المهمات فردية (لا تُزامَن مكافآتها جماعياً)
+
+signal quest_started(quest_id: String)
+signal quest_updated(quest_id: String, objective_index: int)
+signal quest_completed(quest_id: String, rewards: Dictionary)
+signal quest_failed(quest_id: String, reason: String)
+signal notification(text: String)
+signal dialogue_requested(lines: Array, quest_id: String)
+
+const STORY_PATH := "res://data/quests/story_main.json"
+
+enum QState { LOCKED, AVAILABLE, ACTIVE, COMPLETED, FAILED }
+
+var story_title: String = "الملك الأخير"
+var missions_def: Dictionary = {}
+var npcs_def: Dictionary = {}
+var chapters: Array = []
+
+## quest_id -> {state, objective_index, objectives_done:[]}
+var progress: Dictionary = {}
+var active_quest_id: String = ""
+var money: int = 0
+var xp: int = 0
+var player: Node3D = null
+var world_points: Dictionary = {}
+var _check_timer: float = 0.0
+
+func _ready() -> void:
+	name = "QuestManager"
+	_load_story()
+	set_process(true)
+
+func _load_story() -> void:
+	if not FileAccess.file_exists(STORY_PATH):
+		push_error("story missing")
+		return
+	var f := FileAccess.open(STORY_PATH, FileAccess.READ)
+	var data = JSON.parse_string(f.get_as_text())
+	if typeof(data) != TYPE_DICTIONARY:
+		return
+	story_title = str(data.get("title", story_title))
+	chapters = data.get("chapters", [])
+	missions_def = data.get("missions", {})
+	npcs_def = data.get("npcs", {})
+	for id in missions_def.keys():
+		if not progress.has(id):
+			var prereq: Array = missions_def[id].get("prerequisites", [])
+			var st := QState.AVAILABLE if prereq.is_empty() else QState.LOCKED
+			progress[id] = {"state": st, "objective_index": 0, "done": []}
+	print("[Quest] ", story_title, " | missions=", missions_def.size())
+
+func setup(p_player: Node3D, points: Dictionary) -> void:
+	player = p_player
+	world_points = points
+	# ابدأ أول مهمة متاحة تلقائياً إن لم يكن هناك نشطة
+	if active_quest_id == "":
+		var first := _first_available()
+		if first != "":
+			start_quest(first)
+
+func _first_available() -> String:
+	for id in missions_def.keys():
+		if int(progress.get(id, {}).get("state", QState.LOCKED)) == QState.AVAILABLE:
+			return id
+	return ""
+
+func start_quest(quest_id: String) -> bool:
+	if not missions_def.has(quest_id):
+		return false
+	var st: int = int(progress[quest_id]["state"])
+	if st == QState.COMPLETED:
+		return false
+	if st == QState.LOCKED:
+		emit_signal("notification", "المهمة مقفلة")
+		return false
+	# أنهِ النشاط السابق إن لزم (مهمة واحدة نشطة)
+	if active_quest_id != "" and active_quest_id != quest_id:
+		var prev_st: int = int(progress[active_quest_id]["state"])
+		if prev_st == QState.ACTIVE:
+			progress[active_quest_id]["state"] = QState.AVAILABLE
+	active_quest_id = quest_id
+	progress[quest_id]["state"] = QState.ACTIVE
+	progress[quest_id]["objective_index"] = 0
+	var q: Dictionary = missions_def[quest_id]
+	emit_signal("quest_started", quest_id)
+	try_play_quest_dialogue(quest_id)
+	emit_signal("notification", "مهمة: " + str(q.get("name", quest_id)))
+	_maybe_cinematic(quest_id, q)
+	# حوار تلقائي لمهام الحديث عند البدء إن لم يكن هدف talk
+	return true
+
+func try_talk_npc(npc_id: String) -> void:
+	if active_quest_id == "":
+		# ابحث عن مهمة talk متاحة لهذا الـ npc
+		for id in missions_def.keys():
+			var st: int = int(progress[id]["state"])
+			if st != QState.AVAILABLE and st != QState.ACTIVE:
+				continue
+			var q: Dictionary = missions_def[id]
+			for obj in q.get("objectives", []):
+				if str(obj.get("type")) == "talk" and str(obj.get("npc")) == npc_id:
+					if st == QState.AVAILABLE:
+						start_quest(id)
+					_open_dialogue_for(id, npc_id)
+					return
+		emit_signal("notification", "لا يوجد حديث الآن")
+		return
+	var q2: Dictionary = missions_def.get(active_quest_id, {})
+	var idx: int = int(progress[active_quest_id]["objective_index"])
+	var objs: Array = q2.get("objectives", [])
+	if idx < objs.size():
+		var obj: Dictionary = objs[idx]
+		if str(obj.get("type")) == "talk" and str(obj.get("npc")) == npc_id:
+			_open_dialogue_for(active_quest_id, npc_id)
+			return
+	emit_signal("notification", "تحدّث لاحقاً")
+
+func _open_dialogue_for(quest_id: String, _npc_id: String) -> void:
+	var q: Dictionary = missions_def.get(quest_id, {})
+	var lines: Array = q.get("dialogue", [])
+	if lines.is_empty():
+		lines = [{"speaker": "؟", "text": "..."}]
+	emit_signal("dialogue_requested", lines, quest_id)
+
+func complete_dialogue(quest_id: String) -> void:
+	if quest_id != active_quest_id:
+		if progress.has(quest_id) and int(progress[quest_id]["state"]) == QState.AVAILABLE:
+			start_quest(quest_id)
+	if quest_id != active_quest_id:
+		return
+	var q: Dictionary = missions_def.get(quest_id, {})
+	var idx: int = int(progress[quest_id]["objective_index"])
+	var objs: Array = q.get("objectives", [])
+	if idx < objs.size() and str(objs[idx].get("type")) == "talk":
+		_complete_objective(quest_id)
+
+func _process(delta: float) -> void:
+	if player == null or active_quest_id == "":
+		return
+	_check_timer += delta
+	if _check_timer < 0.25:
+		return
+	_check_timer = 0.0
+	_check_reach_objectives()
+
+func _check_reach_objectives() -> void:
+	var q: Dictionary = missions_def.get(active_quest_id, {})
+	var idx: int = int(progress[active_quest_id]["objective_index"])
+	var objs: Array = q.get("objectives", [])
+	if idx >= objs.size():
+		return
+	var obj: Dictionary = objs[idx]
+	if str(obj.get("type")) != "reach":
+		return
+	var target_key := str(obj.get("target", ""))
+	var radius := float(obj.get("radius", 10.0))
+	var pos: Variant = _resolve_point(target_key)
+	if pos == null:
+		return
+	if player.global_position.distance_to(pos) <= radius:
+		_complete_objective(active_quest_id)
+
+func _resolve_point(key: String):
+	if world_points.has(key):
+		var d = world_points[key]
+		if typeof(d) == TYPE_DICTIONARY and d.has("pos"):
+			return d["pos"]
+	return null
+
+func _complete_objective(quest_id: String) -> void:
+	var q: Dictionary = missions_def[quest_id]
+	var idx: int = int(progress[quest_id]["objective_index"])
+	var objs: Array = q.get("objectives", [])
+	progress[quest_id]["done"].append(idx)
+	idx += 1
+	progress[quest_id]["objective_index"] = idx
+	emit_signal("quest_updated", quest_id, idx)
+	if idx >= objs.size():
+		_finish_quest(quest_id, true)
+	else:
+		var next_text := str(objs[idx].get("text", "هدف جديد"))
+		emit_signal("notification", "الهدف التالي: " + next_text)
+
+func _finish_quest(quest_id: String, success: bool) -> void:
+	var q: Dictionary = missions_def[quest_id]
+	if success:
+		progress[quest_id]["state"] = QState.COMPLETED
+		var rewards: Dictionary = q.get("rewards", {})
+		_grant_rewards(quest_id, rewards)
+		active_quest_id = ""
+		if AchievementSystem:
+			AchievementSystem.unlock("quest_done")
+		emit_signal("quest_completed", quest_id, rewards)
+		emit_signal("notification", "أُنجزت: " + str(q.get("name", quest_id)))
+		# فتح مهام
+		for u in q.get("unlocks", []):
+			if progress.has(u) and int(progress[u]["state"]) == QState.LOCKED:
+				progress[u]["state"] = QState.AVAILABLE
+		# ابدأ التالية تلقائياً
+		var nxt: String = _first_available()
+		if nxt != "":
+			start_quest(nxt)
+		_save_to_gamesave()
+	else:
+		progress[quest_id]["state"] = QState.FAILED
+		emit_signal("quest_failed", quest_id, "فشلت المهمة")
+		if q.get("retryable", false):
+			progress[quest_id]["state"] = QState.AVAILABLE
+			progress[quest_id]["objective_index"] = 0
+			progress[quest_id]["done"] = []
+func _grant_rewards(quest_id: String, rewards: Dictionary) -> void:
+	var key := "rewarded_%s" % quest_id
+	if progress[quest_id].get(key, false):
+		return
+	progress[quest_id][key] = true
+	var amt := int(rewards.get("money", 0))
+	var eco := get_node_or_null("/root/EconomyManager")
+	if eco and eco.has_method("claim_mission_reward"):
+		eco.claim_mission_reward(quest_id, amt)
+		money = int(eco.balance)
+	else:
+		money += amt
+	xp += int(rewards.get("xp", 0))
+
+func get_active_quest() -> Dictionary:
+	if active_quest_id == "" or not missions_def.has(active_quest_id):
+		return {}
+	var q: Dictionary = missions_def[active_quest_id].duplicate(true)
+	q["progress"] = progress[active_quest_id]
+	return q
+
+func get_objective_marker_pos():
+	if active_quest_id == "":
+		return null
+	var q: Dictionary = missions_def[active_quest_id]
+	var idx: int = int(progress[active_quest_id]["objective_index"])
+	var objs: Array = q.get("objectives", [])
+	if idx >= objs.size():
+		return null
+	var obj: Dictionary = objs[idx]
+	if str(obj.get("type")) == "reach":
+		return _resolve_point(str(obj.get("target", "")))
+	if str(obj.get("type")) == "talk":
+		var npc_id := str(obj.get("npc", ""))
+		if npcs_def.has(npc_id):
+			var sp = npcs_def[npc_id].get("spawn", {})
+			return Vector3(float(sp.get("x", 0)), 1.0, float(sp.get("z", 0)))
+	return null
+
+func get_save_data() -> Dictionary:
+	return {
+		"active_quest_id": active_quest_id,
+		"progress": progress,
+		"money": money,
+		"xp": xp
+	}
+
+func load_save_data(data: Dictionary) -> void:
+	if data.is_empty():
+		return
+	active_quest_id = str(data.get("active_quest_id", ""))
+	money = int(data.get("money", 0))
+	xp = int(data.get("xp", 0))
+	var p = data.get("progress", {})
+	if typeof(p) == TYPE_DICTIONARY:
+		for k in p.keys():
+			progress[k] = p[k]
+
+func _save_to_gamesave() -> void:
+	if not SaveSystem:
+		return
+	var data := SaveSystem.current_save if not SaveSystem.current_save.is_empty() else SaveSystem.create_default_save()
+	data["quests"] = get_save_data()
+	data["player"] = data.get("player", {})
+	data["player"]["money"] = money
+	SaveSystem.current_save = data
+	SaveSystem.save_game(data)
+
+
+func _maybe_cinematic(quest_id: String, q: Dictionary) -> void:
+	# مشاهد افتتاحية لفصول/مهمات مهمة
+	var lines: Array = []
+	var points: Array = []
+	match quest_id:
+		"m01_wake":
+			lines = [
+				{"speaker": "راوي", "text": "مدينة النفوذ لا ترحم... لكن العرش فاضي."},
+				{"speaker": "راوي", "text": "ابدأ من الميدان. أثبت إنك تستحق اسم أبو كردوم."},
+			]
+			var p = _resolve_point("plaza")
+			if p: points = [p]
+		"m05_race_invite":
+			lines = [
+				{"speaker": "راشد", "text": "السباق مش لعبة أطفال."},
+				{"speaker": "راشد", "text": "اللي يفوز... يفتح باب الحي الشرقي."},
+			]
+		"m08_collect_markers":
+			lines = [
+				{"speaker": "راوي", "text": "ثلاث نقاط... وثلاثة مفاتيح للمدينة."},
+			]
+		_:
+			return
+	var hud := get_tree().root.find_child("CinematicOverlay", true, false)
+	if hud and hud.has_method("play"):
+		hud.play(quest_id, lines, points, player)
+
+
+func try_play_quest_dialogue(quest_id: String) -> void:
+	var path := "res://data/dialogue/campaign_dialogues.json"
+	if not FileAccess.file_exists(path):
+		return
+	var data = JSON.parse_string(FileAccess.get_file_as_string(path))
+	if typeof(data) != TYPE_DICTIONARY or not data.has(quest_id):
+		return
+	var root = get_tree().root
+	var dlg = root.find_child("DialogueSystem", true, false)
+	if dlg and dlg.has_method("start_dialogue"):
+		dlg.start_dialogue(quest_id, data[quest_id])
+
+
+func complete_active_if_survive() -> void:
+	if active_quest_id == "":
+		return
+	var q: Dictionary = missions_def.get(active_quest_id, {})
+	if str(q.get("type", "")) == "survive":
+		_complete_objective(active_quest_id)

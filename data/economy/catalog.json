@@ -1,0 +1,19 @@
+{
+  "currency_name": "كردوم",
+  "starting_balance": 500,
+  "weapons": [
+    {"id": "baton", "name": "عصا الشارع", "price": 150, "desc": "سلاح قريب أقوى من القبضة"},
+    {"id": "pistol_kardoum", "name": "مسدس كردوم", "price": 800, "desc": "سلاح بعيد أساسي"},
+    {"id": "smg_shadow", "name": "رشاش الظل", "price": 2200, "desc": "نيران سريعة"}
+  ],
+  "vehicles": [
+    {"id": "car", "name": "سيارة الشارع", "price": 3500, "desc": "مركبة سريعة", "spawn": "garage"},
+    {"id": "motorcycle", "name": "دراجة نارية", "price": 1800, "desc": "خفيفة وسريعة", "spawn": "garage"},
+    {"id": "tuktuk", "name": "توك توك", "price": 1200, "desc": "مركبة شعبية", "spawn": "garage"}
+  ],
+  "properties": [
+    {"id": "house_garage", "name": "بيت الجراج", "price": 5000, "desc": "منزل قرب الجراج", "pos": {"x": 42, "y": 0, "z": -100}},
+    {"id": "house_plaza", "name": "شقة الميدان", "price": 8000, "desc": "إطلالة على الميدان", "pos": {"x": 5, "y": 0, "z": 5}},
+    {"id": "shop_unit", "name": "محل تجاري", "price": 12000, "desc": "عقار يدر دخلاً رمزياً", "pos": {"x": 90, "y": 0, "z": -30}, "income": 50}
+  ]
+}

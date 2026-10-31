@@ -1,0 +1,7 @@
+{
+  "online_server_host": "127.0.0.1",
+  "online_server_port": 7771,
+  "max_players_per_room": 4,
+  "connection_timeout_sec": 10,
+  "protocol_version": "0.6.0"
+}

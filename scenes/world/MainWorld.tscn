@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8world001"]
+
+[ext_resource type="Script" path="res://scripts/systems/WorldManager.gd" id="1_world"]
+
+[sub_resource type="Environment" id="Environment_main"]
+background_mode = 1
+background_color = Color(0.55, 0.70, 0.90, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.6, 0.65, 0.75, 1)
+ambient_light_energy = 0.45
+tonemap_mode = 2
+ssao_enabled = false
+glow_enabled = false
+fog_enabled = false
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttr"]
+
+[node name="MainWorld" type="Node3D"]
+script = ExtResource("1_world")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_main")
+camera_attributes = SubResource("CameraAttr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.353553, 0.353553, 0, 0.707107, 0.707107, -0.5, -0.612372, 0.612372, 0, 40, 0)
+light_color = Color(1, 0.97, 0.9, 1)
+light_energy = 1.2
+shadow_enabled = true
+directional_shadow_mode = 1
+directional_shadow_max_distance = 500.0
+
+[node name="PlayerSpawn" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 25)
+
+[node name="WelcomeLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, 0)
+text = "مملكة الصحاب — المدينة"
+font_size = 64
+modulate = Color(0.92, 0.75, 0.2, 1)
+outline_modulate = Color(0, 0, 0, 1)
+outline_size = 10
+billboard = 1

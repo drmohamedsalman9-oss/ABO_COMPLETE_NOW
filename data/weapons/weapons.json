@@ -1,0 +1,51 @@
+{
+  "weapons": {
+    "fists": {
+      "id": "fists",
+      "name": "القبضة",
+      "type": "melee",
+      "damage": 12,
+      "range": 2.2,
+      "cooldown": 0.45,
+      "ammo_max": 0,
+      "requires_ammo": false,
+      "sfx": "res://assets/audio/sfx_punch.wav"
+    },
+    "baton": {
+      "id": "baton",
+      "name": "عصا الشارع",
+      "type": "melee",
+      "damage": 22,
+      "range": 2.8,
+      "cooldown": 0.55,
+      "ammo_max": 0,
+      "requires_ammo": false,
+      "sfx": "res://assets/audio/sfx_swing.wav"
+    },
+    "pistol_kardoum": {
+      "id": "pistol_kardoum",
+      "name": "مسدس كردوم",
+      "type": "ranged",
+      "damage": 28,
+      "range": 35.0,
+      "cooldown": 0.35,
+      "ammo_max": 12,
+      "requires_ammo": true,
+      "reload_time": 1.4,
+      "sfx": "res://assets/audio/sfx_gunshot.wav"
+    },
+    "smg_shadow": {
+      "id": "smg_shadow",
+      "name": "رشاش الظل",
+      "type": "ranged",
+      "damage": 14,
+      "range": 28.0,
+      "cooldown": 0.12,
+      "ammo_max": 30,
+      "requires_ammo": true,
+      "reload_time": 1.8,
+      "sfx": "res://assets/audio/sfx_gunshot.wav"
+    }
+  },
+  "default_loadout": ["fists", "baton", "pistol_kardoum"]
+}

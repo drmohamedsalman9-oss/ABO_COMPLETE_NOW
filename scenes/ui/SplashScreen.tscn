@@ -1,0 +1,93 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsplash01"]
+
+[ext_resource type="Script" path="res://scripts/ui/SplashScreen.gd" id="1_s"]
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_s")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.04, 0.06, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Crown" type="Label" parent="CenterContainer/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+text = "👑"
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CenterContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.78, 0.2, 1)
+theme_override_font_sizes/font_size = 36
+text = "أبو كردوم"
+horizontal_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="CenterContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.75, 0.35, 1)
+theme_override_font_sizes/font_size = 20
+text = "الملك الأخير"
+horizontal_alignment = 1
+
+[node name="EnglishLabel" type="Label" parent="CenterContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.65, 0.45, 1)
+theme_override_font_sizes/font_size = 12
+text = "ABO KARDOOM: THE LAST KING"
+horizontal_alignment = 1
+
+[node name="SignatureLabel" type="Label" parent="CenterContainer/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.75, 0.7, 1)
+theme_override_font_sizes/font_size = 13
+text = "محمد ماهر أبو كردوم"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="CenterContainer/VBox"]
+custom_minimum_size = Vector2(220, 12)
+layout_mode = 2
+max_value = 100.0
+show_percentage = false
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -30.0
+offset_right = -12.0
+offset_bottom = -8.0
+theme_override_font_sizes/font_size = 11
+text = "v0.12.0"
+horizontal_alignment = 2
+
+[node name="SkipBtn" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -100.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 42.0
+text = "تخطي"

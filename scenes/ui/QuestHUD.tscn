@@ -1,0 +1,134 @@
+[gd_scene load_steps=2 format=3 uid="uid://bquesthud01"]
+
+[ext_resource type="Script" path="res://scripts/ui/QuestHUD.gd" id="1_q"]
+
+[node name="QuestHUD" type="CanvasLayer"]
+layer = 15
+script = ExtResource("1_q")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="QuestPanel" type="Panel" parent="Root"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 140.0
+grow_horizontal = 0
+
+[node name="VBox" type="VBoxContainer" parent="Root/QuestPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 6.0
+offset_right = -8.0
+offset_bottom = -6.0
+
+[node name="Title" type="Label" parent="Root/QuestPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.75, 0.2, 1)
+theme_override_font_sizes/font_size = 15
+text = "مهمة"
+horizontal_alignment = 2
+
+[node name="Desc" type="Label" parent="Root/QuestPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = ""
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Objective" type="Label" parent="Root/QuestPanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.85, 0.9, 0.7, 1)
+theme_override_font_sizes/font_size = 12
+text = ""
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="Progress" type="Label" parent="Root/QuestPanel/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = ""
+horizontal_alignment = 2
+
+[node name="MoneyLabel" type="Label" parent="Root"]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 200.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.92, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 14
+text = "💰 0"
+
+[node name="Notify" type="Label" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 48.0
+offset_right = 180.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.95, 0.9, 0.5, 1)
+theme_override_font_sizes/font_size = 15
+text = ""
+horizontal_alignment = 1
+
+[node name="DialoguePanel" type="Panel" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -200.0
+offset_right = 220.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBox" type="VBoxContainer" parent="Root/DialoguePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = -12.0
+offset_bottom = -10.0
+
+[node name="Speaker" type="Label" parent="Root/DialoguePanel/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.75, 0.2, 1)
+theme_override_font_sizes/font_size = 16
+text = "راشد"
+horizontal_alignment = 2
+
+[node name="Text" type="Label" parent="Root/DialoguePanel/VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 14
+text = "..."
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="BtnNext" type="Button" parent="Root/DialoguePanel/VBox"]
+layout_mode = 2
+text = "متابعة"

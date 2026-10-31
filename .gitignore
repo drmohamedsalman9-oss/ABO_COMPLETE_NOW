@@ -1,0 +1,26 @@
+# Godot 4
+.godot/
+*.translation
+export/
+*.apk
+*.aab
+*.so
+*.keystore
+.import/
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# Generated Android build files
+/android/build/
+/android/build_source_backup/
+
+# Local export backups
+/export_presets.cfg.backup
+/export_presets.cfg.backup2
+/export_presets.cfg.before_gradle
+/export_presets.cfg.before_sdk_fix
+
+# Godot temporary files
+.godot/

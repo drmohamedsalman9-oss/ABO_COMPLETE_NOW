@@ -1,0 +1,72 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcombathud01"]
+
+[ext_resource type="Script" path="res://scripts/ui/CombatHUD.gd" id="1_c"]
+
+[node name="CombatHUD" type="CanvasLayer"]
+layer = 13
+script = ExtResource("1_c")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="WeaponInfo" type="Label" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -200.0
+offset_right = -16.0
+offset_bottom = -150.0
+theme_override_colors/font_color = Color(0.92, 0.8, 0.3, 1)
+theme_override_font_sizes/font_size = 13
+text = "سلاح"
+horizontal_alignment = 2
+
+[node name="BtnAttack" type="Button" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -110.0
+offset_top = -145.0
+offset_right = -20.0
+offset_bottom = -85.0
+theme_override_font_sizes/font_size = 15
+text = "هجوم"
+
+[node name="BtnReload" type="Button" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -145.0
+offset_right = -115.0
+offset_bottom = -110.0
+theme_override_font_sizes/font_size = 12
+text = "تعبئة"
+
+[node name="BtnSwitch" type="Button" parent="Root"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -105.0
+offset_right = -115.0
+offset_bottom = -70.0
+theme_override_font_sizes/font_size = 12
+text = "تبديل"

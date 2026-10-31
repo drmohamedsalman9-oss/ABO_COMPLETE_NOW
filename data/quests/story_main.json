@@ -1,0 +1,1002 @@
+{
+  "title": "الملك الأخير",
+  "disclaimer": "عدد المهمات موسّع كمحتوى قابل للعب. مدة 15–20 ساعة غير مقاسة فعلياً — تعتمد على أسلوب اللاعب والتكرار.",
+  "chapters": [
+    "الوصول",
+    "العجلات",
+    "الضغط",
+    "الأسواق",
+    "الحلفاء",
+    "العرش"
+  ],
+  "main_count": 36,
+  "side_count": 30,
+  "quests": [
+    {
+      "id": "ch1_01",
+      "title": "الوصول — 1",
+      "description": "مهمة من فصل «الوصول»: الهدف 1.",
+      "type": "goto",
+      "chapter": 1,
+      "chapter_name": "الوصول",
+      "reward_money": 190,
+      "next": "ch1_02",
+      "target": {
+        "x": -28,
+        "y": 0,
+        "z": -32
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch1_02",
+      "title": "الوصول — 2",
+      "description": "مهمة من فصل «الوصول»: الهدف 2.",
+      "type": "goto",
+      "chapter": 1,
+      "chapter_name": "الوصول",
+      "reward_money": 215,
+      "next": "ch1_03",
+      "target": {
+        "x": -11,
+        "y": 0,
+        "z": -19
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch1_03",
+      "title": "الوصول — 3",
+      "description": "مهمة من فصل «الوصول»: الهدف 3.",
+      "type": "goto",
+      "chapter": 1,
+      "chapter_name": "الوصول",
+      "reward_money": 240,
+      "next": "ch1_04",
+      "target": {
+        "x": 6,
+        "y": 0,
+        "z": -6
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch1_04",
+      "title": "الوصول — 4",
+      "description": "مهمة من فصل «الوصول»: الهدف 4.",
+      "type": "goto",
+      "chapter": 1,
+      "chapter_name": "الوصول",
+      "reward_money": 265,
+      "next": "ch1_05",
+      "target": {
+        "x": 23,
+        "y": 0,
+        "z": 7
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch1_05",
+      "title": "الوصول — 5",
+      "description": "مهمة من فصل «الوصول»: الهدف 5.",
+      "type": "goto",
+      "chapter": 1,
+      "chapter_name": "الوصول",
+      "reward_money": 290,
+      "next": "ch1_06",
+      "target": {
+        "x": 40,
+        "y": 0,
+        "z": 20
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch1_06",
+      "title": "الوصول — 6",
+      "description": "مهمة من فصل «الوصول»: الهدف 6.",
+      "type": "goto",
+      "chapter": 1,
+      "chapter_name": "الوصول",
+      "reward_money": 315,
+      "next": "ch2_01",
+      "target": {
+        "x": -33,
+        "y": 0,
+        "z": 33
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch2_01",
+      "title": "العجلات — 1",
+      "description": "مهمة من فصل «العجلات»: الهدف 1.",
+      "type": "goto",
+      "chapter": 2,
+      "chapter_name": "العجلات",
+      "reward_money": 230,
+      "next": "ch2_02",
+      "target": {
+        "x": -16,
+        "y": 0,
+        "z": -44
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch2_02",
+      "title": "العجلات — 2",
+      "description": "مهمة من فصل «العجلات»: الهدف 2.",
+      "type": "goto",
+      "chapter": 2,
+      "chapter_name": "العجلات",
+      "reward_money": 255,
+      "next": "ch2_03",
+      "target": {
+        "x": 1,
+        "y": 0,
+        "z": -31
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch2_03",
+      "title": "العجلات — 3",
+      "description": "مهمة من فصل «العجلات»: الهدف 3.",
+      "type": "goto",
+      "chapter": 2,
+      "chapter_name": "العجلات",
+      "reward_money": 280,
+      "next": "ch2_04",
+      "target": {
+        "x": 18,
+        "y": 0,
+        "z": -18
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch2_04",
+      "title": "العجلات — 4",
+      "description": "مهمة من فصل «العجلات»: الهدف 4.",
+      "type": "goto",
+      "chapter": 2,
+      "chapter_name": "العجلات",
+      "reward_money": 305,
+      "next": "ch2_05",
+      "target": {
+        "x": 35,
+        "y": 0,
+        "z": -5
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch2_05",
+      "title": "العجلات — 5",
+      "description": "مهمة من فصل «العجلات»: الهدف 5.",
+      "type": "goto",
+      "chapter": 2,
+      "chapter_name": "العجلات",
+      "reward_money": 330,
+      "next": "ch2_06",
+      "target": {
+        "x": -38,
+        "y": 0,
+        "z": 8
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch2_06",
+      "title": "العجلات — 6",
+      "description": "مهمة من فصل «العجلات»: الهدف 6.",
+      "type": "goto",
+      "chapter": 2,
+      "chapter_name": "العجلات",
+      "reward_money": 355,
+      "next": "ch3_01",
+      "target": {
+        "x": -21,
+        "y": 0,
+        "z": 21
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch3_01",
+      "title": "الضغط — 1",
+      "description": "مهمة من فصل «الضغط»: الهدف 1.",
+      "type": "goto",
+      "chapter": 3,
+      "chapter_name": "الضغط",
+      "reward_money": 270,
+      "next": "ch3_02",
+      "target": {
+        "x": -4,
+        "y": 0,
+        "z": 34
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch3_02",
+      "title": "الضغط — 2",
+      "description": "مهمة من فصل «الضغط»: الهدف 2.",
+      "type": "goto",
+      "chapter": 3,
+      "chapter_name": "الضغط",
+      "reward_money": 295,
+      "next": "ch3_03",
+      "target": {
+        "x": 13,
+        "y": 0,
+        "z": -43
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch3_03",
+      "title": "الضغط — 3",
+      "description": "مهمة من فصل «الضغط»: الهدف 3.",
+      "type": "goto",
+      "chapter": 3,
+      "chapter_name": "الضغط",
+      "reward_money": 320,
+      "next": "ch3_04",
+      "target": {
+        "x": 30,
+        "y": 0,
+        "z": -30
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch3_04",
+      "title": "الضغط — 4",
+      "description": "مهمة من فصل «الضغط»: الهدف 4.",
+      "type": "goto",
+      "chapter": 3,
+      "chapter_name": "الضغط",
+      "reward_money": 345,
+      "next": "ch3_05",
+      "target": {
+        "x": -43,
+        "y": 0,
+        "z": -17
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch3_05",
+      "title": "الضغط — 5",
+      "description": "مهمة من فصل «الضغط»: الهدف 5.",
+      "type": "goto",
+      "chapter": 3,
+      "chapter_name": "الضغط",
+      "reward_money": 370,
+      "next": "ch3_06",
+      "target": {
+        "x": -26,
+        "y": 0,
+        "z": -4
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch3_06",
+      "title": "الضغط — 6",
+      "description": "مهمة من فصل «الضغط»: الهدف 6.",
+      "type": "survive",
+      "chapter": 3,
+      "chapter_name": "الضغط",
+      "reward_money": 395,
+      "next": "ch4_01",
+      "duration": 50
+    },
+    {
+      "id": "ch4_01",
+      "title": "الأسواق — 1",
+      "description": "مهمة من فصل «الأسواق»: الهدف 1.",
+      "type": "goto",
+      "chapter": 4,
+      "chapter_name": "الأسواق",
+      "reward_money": 310,
+      "next": "ch4_02",
+      "target": {
+        "x": 8,
+        "y": 0,
+        "z": 22
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch4_02",
+      "title": "الأسواق — 2",
+      "description": "مهمة من فصل «الأسواق»: الهدف 2.",
+      "type": "goto",
+      "chapter": 4,
+      "chapter_name": "الأسواق",
+      "reward_money": 335,
+      "next": "ch4_03",
+      "target": {
+        "x": 25,
+        "y": 0,
+        "z": 35
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch4_03",
+      "title": "الأسواق — 3",
+      "description": "مهمة من فصل «الأسواق»: الهدف 3.",
+      "type": "goto",
+      "chapter": 4,
+      "chapter_name": "الأسواق",
+      "reward_money": 360,
+      "next": "ch4_04",
+      "target": {
+        "x": 42,
+        "y": 0,
+        "z": -42
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch4_04",
+      "title": "الأسواق — 4",
+      "description": "مهمة من فصل «الأسواق»: الهدف 4.",
+      "type": "goto",
+      "chapter": 4,
+      "chapter_name": "الأسواق",
+      "reward_money": 385,
+      "next": "ch4_05",
+      "target": {
+        "x": -31,
+        "y": 0,
+        "z": -29
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch4_05",
+      "title": "الأسواق — 5",
+      "description": "مهمة من فصل «الأسواق»: الهدف 5.",
+      "type": "goto",
+      "chapter": 4,
+      "chapter_name": "الأسواق",
+      "reward_money": 410,
+      "next": "ch4_06",
+      "target": {
+        "x": -14,
+        "y": 0,
+        "z": -16
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch4_06",
+      "title": "الأسواق — 6",
+      "description": "مهمة من فصل «الأسواق»: الهدف 6.",
+      "type": "goto",
+      "chapter": 4,
+      "chapter_name": "الأسواق",
+      "reward_money": 435,
+      "next": "ch5_01",
+      "target": {
+        "x": 3,
+        "y": 0,
+        "z": -3
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch5_01",
+      "title": "الحلفاء — 1",
+      "description": "مهمة من فصل «الحلفاء»: الهدف 1.",
+      "type": "goto",
+      "chapter": 5,
+      "chapter_name": "الحلفاء",
+      "reward_money": 350,
+      "next": "ch5_02",
+      "target": {
+        "x": 20,
+        "y": 0,
+        "z": 10
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch5_02",
+      "title": "الحلفاء — 2",
+      "description": "مهمة من فصل «الحلفاء»: الهدف 2.",
+      "type": "goto",
+      "chapter": 5,
+      "chapter_name": "الحلفاء",
+      "reward_money": 375,
+      "next": "ch5_03",
+      "target": {
+        "x": 37,
+        "y": 0,
+        "z": 23
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch5_03",
+      "title": "الحلفاء — 3",
+      "description": "مهمة من فصل «الحلفاء»: الهدف 3.",
+      "type": "goto",
+      "chapter": 5,
+      "chapter_name": "الحلفاء",
+      "reward_money": 400,
+      "next": "ch5_04",
+      "target": {
+        "x": -36,
+        "y": 0,
+        "z": 36
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch5_04",
+      "title": "الحلفاء — 4",
+      "description": "مهمة من فصل «الحلفاء»: الهدف 4.",
+      "type": "goto",
+      "chapter": 5,
+      "chapter_name": "الحلفاء",
+      "reward_money": 425,
+      "next": "ch5_05",
+      "target": {
+        "x": -19,
+        "y": 0,
+        "z": -41
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch5_05",
+      "title": "الحلفاء — 5",
+      "description": "مهمة من فصل «الحلفاء»: الهدف 5.",
+      "type": "goto",
+      "chapter": 5,
+      "chapter_name": "الحلفاء",
+      "reward_money": 450,
+      "next": "ch5_06",
+      "target": {
+        "x": -2,
+        "y": 0,
+        "z": -28
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch5_06",
+      "title": "الحلفاء — 6",
+      "description": "مهمة من فصل «الحلفاء»: الهدف 6.",
+      "type": "survive",
+      "chapter": 5,
+      "chapter_name": "الحلفاء",
+      "reward_money": 475,
+      "next": "ch6_01",
+      "duration": 60
+    },
+    {
+      "id": "ch6_01",
+      "title": "العرش — 1",
+      "description": "مهمة من فصل «العرش»: الهدف 1.",
+      "type": "goto",
+      "chapter": 6,
+      "chapter_name": "العرش",
+      "reward_money": 390,
+      "next": "ch6_02",
+      "target": {
+        "x": 32,
+        "y": 0,
+        "z": -2
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch6_02",
+      "title": "العرش — 2",
+      "description": "مهمة من فصل «العرش»: الهدف 2.",
+      "type": "goto",
+      "chapter": 6,
+      "chapter_name": "العرش",
+      "reward_money": 415,
+      "next": "ch6_03",
+      "target": {
+        "x": -41,
+        "y": 0,
+        "z": 11
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch6_03",
+      "title": "العرش — 3",
+      "description": "مهمة من فصل «العرش»: الهدف 3.",
+      "type": "goto",
+      "chapter": 6,
+      "chapter_name": "العرش",
+      "reward_money": 440,
+      "next": "ch6_04",
+      "target": {
+        "x": -24,
+        "y": 0,
+        "z": 24
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch6_04",
+      "title": "العرش — 4",
+      "description": "مهمة من فصل «العرش»: الهدف 4.",
+      "type": "goto",
+      "chapter": 6,
+      "chapter_name": "العرش",
+      "reward_money": 465,
+      "next": "ch6_05",
+      "target": {
+        "x": -7,
+        "y": 0,
+        "z": 37
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch6_05",
+      "title": "العرش — 5",
+      "description": "مهمة من فصل «العرش»: الهدف 5.",
+      "type": "goto",
+      "chapter": 6,
+      "chapter_name": "العرش",
+      "reward_money": 490,
+      "next": "ch6_06",
+      "target": {
+        "x": 10,
+        "y": 0,
+        "z": -40
+      },
+      "radius": 12
+    },
+    {
+      "id": "ch6_06",
+      "title": "العرش — 6",
+      "description": "مهمة من فصل «العرش»: الهدف 6.",
+      "type": "goto",
+      "chapter": 6,
+      "chapter_name": "العرش",
+      "reward_money": 515,
+      "next": "",
+      "target": {
+        "x": 27,
+        "y": 0,
+        "z": -27
+      },
+      "radius": 12
+    },
+    {
+      "id": "side_01",
+      "title": "جانبية 1",
+      "description": "استكشاف جانبي رقم 1 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -29,
+        "y": 0,
+        "z": -33
+      },
+      "radius": 10,
+      "reward_money": 95,
+      "side": true
+    },
+    {
+      "id": "side_02",
+      "title": "جانبية 2",
+      "description": "استكشاف جانبي رقم 2 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -18,
+        "y": 0,
+        "z": -26
+      },
+      "radius": 10,
+      "reward_money": 110,
+      "side": true
+    },
+    {
+      "id": "side_03",
+      "title": "جانبية 3",
+      "description": "استكشاف جانبي رقم 3 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -7,
+        "y": 0,
+        "z": -19
+      },
+      "radius": 10,
+      "reward_money": 125,
+      "side": true
+    },
+    {
+      "id": "side_04",
+      "title": "جانبية 4",
+      "description": "استكشاف جانبي رقم 4 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 4,
+        "y": 0,
+        "z": -12
+      },
+      "radius": 10,
+      "reward_money": 140,
+      "side": true
+    },
+    {
+      "id": "side_05",
+      "title": "جانبية 5",
+      "description": "استكشاف جانبي رقم 5 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 15,
+        "y": 0,
+        "z": -5
+      },
+      "radius": 10,
+      "reward_money": 155,
+      "side": true
+    },
+    {
+      "id": "side_06",
+      "title": "جانبية 6",
+      "description": "استكشاف جانبي رقم 6 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 26,
+        "y": 0,
+        "z": 2
+      },
+      "radius": 10,
+      "reward_money": 170,
+      "side": true
+    },
+    {
+      "id": "side_07",
+      "title": "جانبية 7",
+      "description": "استكشاف جانبي رقم 7 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 37,
+        "y": 0,
+        "z": 9
+      },
+      "radius": 10,
+      "reward_money": 185,
+      "side": true
+    },
+    {
+      "id": "side_08",
+      "title": "جانبية 8",
+      "description": "استكشاف جانبي رقم 8 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -32,
+        "y": 0,
+        "z": 16
+      },
+      "radius": 10,
+      "reward_money": 200,
+      "side": true
+    },
+    {
+      "id": "side_09",
+      "title": "جانبية 9",
+      "description": "استكشاف جانبي رقم 9 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -21,
+        "y": 0,
+        "z": 23
+      },
+      "radius": 10,
+      "reward_money": 215,
+      "side": true
+    },
+    {
+      "id": "side_10",
+      "title": "جانبية 10",
+      "description": "استكشاف جانبي رقم 10 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -10,
+        "y": 0,
+        "z": 30
+      },
+      "radius": 10,
+      "reward_money": 230,
+      "side": true
+    },
+    {
+      "id": "side_11",
+      "title": "جانبية 11",
+      "description": "استكشاف جانبي رقم 11 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 1,
+        "y": 0,
+        "z": 37
+      },
+      "radius": 10,
+      "reward_money": 245,
+      "side": true
+    },
+    {
+      "id": "side_12",
+      "title": "جانبية 12",
+      "description": "استكشاف جانبي رقم 12 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 12,
+        "y": 0,
+        "z": -36
+      },
+      "radius": 10,
+      "reward_money": 260,
+      "side": true
+    },
+    {
+      "id": "side_13",
+      "title": "جانبية 13",
+      "description": "استكشاف جانبي رقم 13 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 23,
+        "y": 0,
+        "z": -29
+      },
+      "radius": 10,
+      "reward_money": 275,
+      "side": true
+    },
+    {
+      "id": "side_14",
+      "title": "جانبية 14",
+      "description": "استكشاف جانبي رقم 14 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 34,
+        "y": 0,
+        "z": -22
+      },
+      "radius": 10,
+      "reward_money": 290,
+      "side": true
+    },
+    {
+      "id": "side_15",
+      "title": "جانبية 15",
+      "description": "استكشاف جانبي رقم 15 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -35,
+        "y": 0,
+        "z": -15
+      },
+      "radius": 10,
+      "reward_money": 305,
+      "side": true
+    },
+    {
+      "id": "side_16",
+      "title": "جانبية 16",
+      "description": "استكشاف جانبي رقم 16 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -24,
+        "y": 0,
+        "z": -8
+      },
+      "radius": 10,
+      "reward_money": 320,
+      "side": true
+    },
+    {
+      "id": "side_17",
+      "title": "جانبية 17",
+      "description": "استكشاف جانبي رقم 17 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -13,
+        "y": 0,
+        "z": -1
+      },
+      "radius": 10,
+      "reward_money": 335,
+      "side": true
+    },
+    {
+      "id": "side_18",
+      "title": "جانبية 18",
+      "description": "استكشاف جانبي رقم 18 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -2,
+        "y": 0,
+        "z": 6
+      },
+      "radius": 10,
+      "reward_money": 350,
+      "side": true
+    },
+    {
+      "id": "side_19",
+      "title": "جانبية 19",
+      "description": "استكشاف جانبي رقم 19 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 9,
+        "y": 0,
+        "z": 13
+      },
+      "radius": 10,
+      "reward_money": 365,
+      "side": true
+    },
+    {
+      "id": "side_20",
+      "title": "جانبية 20",
+      "description": "استكشاف جانبي رقم 20 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 20,
+        "y": 0,
+        "z": 20
+      },
+      "radius": 10,
+      "reward_money": 380,
+      "side": true
+    },
+    {
+      "id": "side_21",
+      "title": "جانبية 21",
+      "description": "استكشاف جانبي رقم 21 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 31,
+        "y": 0,
+        "z": 27
+      },
+      "radius": 10,
+      "reward_money": 395,
+      "side": true
+    },
+    {
+      "id": "side_22",
+      "title": "جانبية 22",
+      "description": "استكشاف جانبي رقم 22 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -38,
+        "y": 0,
+        "z": 34
+      },
+      "radius": 10,
+      "reward_money": 410,
+      "side": true
+    },
+    {
+      "id": "side_23",
+      "title": "جانبية 23",
+      "description": "استكشاف جانبي رقم 23 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -27,
+        "y": 0,
+        "z": -39
+      },
+      "radius": 10,
+      "reward_money": 425,
+      "side": true
+    },
+    {
+      "id": "side_24",
+      "title": "جانبية 24",
+      "description": "استكشاف جانبي رقم 24 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -16,
+        "y": 0,
+        "z": -32
+      },
+      "radius": 10,
+      "reward_money": 440,
+      "side": true
+    },
+    {
+      "id": "side_25",
+      "title": "جانبية 25",
+      "description": "استكشاف جانبي رقم 25 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -5,
+        "y": 0,
+        "z": -25
+      },
+      "radius": 10,
+      "reward_money": 455,
+      "side": true
+    },
+    {
+      "id": "side_26",
+      "title": "جانبية 26",
+      "description": "استكشاف جانبي رقم 26 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 6,
+        "y": 0,
+        "z": -18
+      },
+      "radius": 10,
+      "reward_money": 470,
+      "side": true
+    },
+    {
+      "id": "side_27",
+      "title": "جانبية 27",
+      "description": "استكشاف جانبي رقم 27 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 17,
+        "y": 0,
+        "z": -11
+      },
+      "radius": 10,
+      "reward_money": 485,
+      "side": true
+    },
+    {
+      "id": "side_28",
+      "title": "جانبية 28",
+      "description": "استكشاف جانبي رقم 28 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 28,
+        "y": 0,
+        "z": -4
+      },
+      "radius": 10,
+      "reward_money": 500,
+      "side": true
+    },
+    {
+      "id": "side_29",
+      "title": "جانبية 29",
+      "description": "استكشاف جانبي رقم 29 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": 39,
+        "y": 0,
+        "z": 3
+      },
+      "radius": 10,
+      "reward_money": 515,
+      "side": true
+    },
+    {
+      "id": "side_30",
+      "title": "جانبية 30",
+      "description": "استكشاف جانبي رقم 30 في أرجاء المدينة.",
+      "type": "goto",
+      "target": {
+        "x": -30,
+        "y": 0,
+        "z": 10
+      },
+      "radius": 10,
+      "reward_money": 530,
+      "side": true
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "main_01_meet": [
+    {
+      "speaker": "راشد",
+      "text": "أبو كردوم، المدينة دي محتاجة ملك، مش هارب.",
+      "audio": "res://assets/audio/voice/dlg_main_01_meet.wav"
+    },
+    {
+      "speaker": "أبو كردوم",
+      "text": "الملك الأخير مش بيتقال... بيتثبت في الشارع."
+    },
+    {
+      "speaker": "راشد",
+      "text": "امسك عربية، وورّيني إنك قدها."
+    }
+  ],
+  "ch1_intro": [
+    {
+      "speaker": "راشد",
+      "text": "أبو كردوم، المدينة دي محتاجة ملك، مش هارب.",
+      "audio": "res://assets/audio/voice/dlg_main_01_meet.wav"
+    },
+    {
+      "speaker": "أبو كردوم",
+      "text": "الملك الأخير مش بيتقال... بيتثبت في الشارع."
+    }
+  ],
+  "ch1_wheels": [
+    {
+      "speaker": "راشد",
+      "text": "من غير عجلات، مفيش هيبة في الشارع.",
+      "audio": "res://assets/audio/voice/dlg_ch1_wheels.wav"
+    },
+    {
+      "speaker": "أبو كردوم",
+      "text": "هلاقي العربية المناسبة وأثبت نفسي."
+    }
+  ],
+  "main_03_heat": [
+    {
+      "speaker": "راشد",
+      "text": "الشرطة سخنت. اهرب من غير ما توقع في إيديهم.",
+      "audio": "res://assets/audio/voice/dlg_main_03_heat.wav"
+    },
+    {
+      "speaker": "أبو كردوم",
+      "text": "خلّيهم يجروا ورايا لحد ما يتعبوا."
+    }
+  ],
+  "ch1_heat": [
+    {
+      "speaker": "راشد",
+      "text": "الشرطة سخنت. اهرب من غير ما توقع في إيديهم.",
+      "audio": "res://assets/audio/voice/dlg_main_03_heat.wav"
+    }
+  ],
+  "ch4_01": [
+    {
+      "speaker": "راشد",
+      "text": "السوق مليان عيون. خُش بذكاء وطلع بنفسك.",
+      "audio": "res://assets/audio/voice/dlg_ch4_market.wav"
+    },
+    {
+      "speaker": "أبو كردوم",
+      "text": "العين عليّا، وأنا عليّا الشغل."
+    }
+  ],
+  "ch5_01": [
+    {
+      "speaker": "راشد",
+      "text": "الحلفاء مش بيتشتروا. بيتثبتوا في المطاردة.",
+      "audio": "res://assets/audio/voice/dlg_ch5_allies.wav"
+    },
+    {
+      "speaker": "أبو كردوم",
+      "text": "اللي يقف جنبي في الضيق هو اللي يستاهل."
+    }
+  ],
+  "main_06_throne": [
+    {
+      "speaker": "راشد",
+      "text": "الناس بتتكلم عنك. العرش فاضي... وإنت واقف قدامه.",
+      "audio": "res://assets/audio/voice/dlg_main_06_throne.wav"
+    },
+    {
+      "speaker": "أبو كردوم",
+      "text": "الملك الأخير وصل."
+    }
+  ],
+  "ch6_06": [
+    {
+      "speaker": "راشد",
+      "text": "الناس بتتكلم عنك. العرش فاضي... وإنت واقف قدامه.",
+      "audio": "res://assets/audio/voice/dlg_main_06_throne.wav"
+    },
+    {
+      "speaker": "أبو كردوم",
+      "text": "الملك الأخير وصل."
+    }
+  ]
+}

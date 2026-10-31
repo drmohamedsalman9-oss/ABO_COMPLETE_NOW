@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdestcomp01"]
+
+[ext_resource type="Script" path="res://scripts/ui/DestinationCompass.gd" id="1_d"]
+
+[node name="DestinationCompass" type="CanvasLayer"]
+layer = 11
+script = ExtResource("1_d")
+
+[node name="Arrow" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 130.0
+offset_right = 20.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(0.95, 0.8, 0.2, 1)
+theme_override_font_sizes/font_size = 28
+text = "▲"
+horizontal_alignment = 1
+pivot_offset = Vector2(20, 20)
+
+[node name="Dist" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 168.0
+offset_right = 40.0
+offset_bottom = 190.0
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
